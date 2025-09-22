@@ -17,7 +17,7 @@ public class AnalyticsController {
         this.analytics = analytics;
     }
 
-    // temp dev user (same as elsewhere)
+    //just temp dev user
     private static final UUID DEV_USER = UUID.fromString("11111111-1111-1111-1111-111111111111");
 
     @GetMapping("/prs")
