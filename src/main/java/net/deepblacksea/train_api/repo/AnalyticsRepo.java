@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.UUID;
+import java.time.Instant;
 
 public interface AnalyticsRepo extends Repository<net.deepblacksea.train_api.model.SetEntry, UUID>{
     interface PrProjection {//a personal record basically
@@ -25,7 +26,7 @@ public interface AnalyticsRepo extends Repository<net.deepblacksea.train_api.mod
 
     interface RecentSessionProjection {
         UUID getSessionId();
-        OffsetDateTime getStartedAt();
+        Instant getStartedAt();
         Integer getSetsCount();
         Integer getRepsCount();
         BigDecimal getVolumeKg();
