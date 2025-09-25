@@ -1,8 +1,9 @@
 package net.deepblacksea.train_api.model;
 
 import jakarta.persistence.*;
+import java.time.OffsetDateTime;
 import java.util.UUID;
-import java.math.BigDecimal; // <-- add this
+import java.math.BigDecimal;
 
 @Entity
 @Table(name="sets")
@@ -17,7 +18,10 @@ public class SetEntry {
 
     @Column(name="weight_kg")
     private BigDecimal weightKg;
-
+    @Column(name="created at", nullable = false)
+    private OffsetDateTime createdAt;
+    public OffsetDateTime getCreatedAt(){ return createdAt; }
+    public void setCreatedAt(OffsetDateTime t){ this.createdAt = t; }
     private Integer reps;
 
     private BigDecimal rpe;

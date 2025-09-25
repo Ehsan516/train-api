@@ -7,7 +7,7 @@ import net.deepblacksea.train_api.repo.SessionRepo;
 import net.deepblacksea.train_api.repo.SetRepo;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-
+import java.time.OffsetDateTime;
 import java.util.*;
 
 @RestController
@@ -51,7 +51,7 @@ public class SessionController {
                 //for each session, fetch  sets and map to DTO
                 .map(s -> new SessionWithSets(
                         new SessionRes(s.getId(), s.getStartedAt(), s.getNotes()),
-                        sets.findBySessionIdOrderByIdAsc(s.getId()).stream()
+                        sets.findBySessionIdOrderByCreatedAtAsc(s.getId()).stream()
                                 .map(st -> new SetRes(
                                         st.getId(),
                                         st.getExerciseId(),
@@ -77,6 +77,7 @@ public class SessionController {
         st.setWeightKg(req.weightKg());
         st.setRpe(req.rpe());
         st.setNotes(req.notes());
+        st.setCreatedAt(OffsetDateTime.now());//for ordering sets by timestamp
 
         sets.save(st);//insert into DB
 

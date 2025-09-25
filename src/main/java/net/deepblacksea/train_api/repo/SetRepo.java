@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.*;
 
 public interface SetRepo extends JpaRepository<SetEntry, UUID> {
-    List<SetEntry> findBySessionIdOrderByIdAsc(UUID sessionId);
+    List<SetEntry> findBySessionIdOrderByCreatedAtAsc(UUID sessionId);
 }
