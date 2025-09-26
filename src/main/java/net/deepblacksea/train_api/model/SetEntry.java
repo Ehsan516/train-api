@@ -18,7 +18,7 @@ public class SetEntry {
 
     @Column(name="weight_kg")
     private BigDecimal weightKg;
-    @Column(name="created at", nullable = false)
+    @Column(name="created_at", nullable = false)
     private OffsetDateTime createdAt;
     public OffsetDateTime getCreatedAt(){ return createdAt; }
     public void setCreatedAt(OffsetDateTime t){ this.createdAt = t; }
